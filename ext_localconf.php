@@ -19,4 +19,11 @@ call_user_func(function ($extKey) {
     if (TYPO3_MODE === 'FE') {
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-postProcess'][] = \Arndtteunissen\SocialMediaFields\Hooks\PageRendererHook::class . '->renderPostProcess';
     }
+
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$extKey] = [
+        'types' => [
+            'pages' => Arndtteunissen\SocialMediaFields\Types\Pages::class,
+            'news' => Arndtteunissen\SocialMediaFields\Types\News::class
+        ]
+    ];
 }, $_EXTKEY);
