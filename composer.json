@@ -18,5 +18,8 @@
       "email": "dev@jdoubleu.de"
     }
   ],
-  "require": {}
+  "require": {
+    "typo3/cms-core": "^7.6 || ^8.7",
+    "php": "^7.1"
+  }
 }
