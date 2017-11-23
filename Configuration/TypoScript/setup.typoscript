@@ -1,0 +1,15 @@
+plugin.tx_socialmediafields {
+	settings {
+		opengraph {
+			# This can be a stdwrap or direct string.
+			defaultImage =
+		}
+		twitter {
+			# This can be a stdwrap or direct string.
+			defaultImage =
+			# for tag twtter:card
+			card = summary
+			site =
+		}
+	}
+}
