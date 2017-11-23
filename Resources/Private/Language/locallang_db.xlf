@@ -6,6 +6,67 @@
             <authorEmail>dev@arndtteunissen.de</authorEmail>
         </header>
         <body>
+			<!-- For pages -->
+			<trans-unit id="pages.div.socialmedia" xml:space="preserve">
+				<source>Social Media</source>
+			</trans-unit>
+
+			<trans-unit id="pages.palettes.socialmedia_opengraph" xml:space="preserve">
+				<source>OpenGraph (Facebook, Xing)</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_socialmediafields_opengraph_headlinea" xml:space="preserve">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_socialmediafields_opengraph_description" xml:space="preserve">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_socialmediafields_opengraph_images" xml:space="preserve">
+				<source>Images</source>
+			</trans-unit>
+
+			<trans-unit id="pages.palettes.socialmedia_twitter" xml:space="preserve">
+				<source>Twitter</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_socialmediafields_twitter_headlinea" xml:space="preserve">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_socialmediafields_twitter_description" xml:space="preserve">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_socialmediafields_twitter_images" xml:space="preserve">
+				<source>Images</source>
+			</trans-unit>
+
+			<!-- For tx_news -->
+			<trans-unit id="tx_news_domain_model_news.div.socialmedia" xml:space="preserve">
+				<source>Social Media</source>
+			</trans-unit>
+
+			<trans-unit id="tx_news_domain_model_news.palettes.socialmedia_opengraph" xml:space="preserve">
+				<source>OpenGraph (Facebook, Xing)</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.tx_socialmediafields_opengraph_headline" xml:space="preserve">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.tx_socialmediafields_opengraph_description" xml:space="preserve">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.tx_socialmediafields_opengraph_images" xml:space="preserve">
+				<source>Images</source>
+			</trans-unit>
+
+			<trans-unit id="tx_news_domain_model_news.palettes.socialmedia_twitter" xml:space="preserve">
+				<source>Twitter</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.tx_socialmediafields_twitter_headline" xml:space="preserve">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.tx_socialmediafields_twitter_description" xml:space="preserve">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.tx_socialmediafields_twitter_images" xml:space="preserve">
+				<source>Images</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>
