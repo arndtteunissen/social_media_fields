@@ -13,7 +13,7 @@ $ll = 'LLL:EXT:social_media_fields/Resources/Private/Language/locallang_db.xlf:'
 
 $columns = [
     'tx_socialmediafields_opengraph_headline'    => [
-        'label'   => $ll . 'pages.columns.tx_socialmediafields_opengraph_headline',
+        'label'   => $ll . 'pages.tx_socialmediafields_opengraph_headline',
         'exclude' => 1,
         'config'  => [
             'type'        => 'input',
@@ -45,7 +45,7 @@ $columns = [
     ],
 
     'tx_socialmediafields_twitter_headline'    => [
-        'label'   => $ll . 'pages.columns.tx_socialmediafields_twitter_headline',
+        'label'   => $ll . 'pages.tx_socialmediafields_twitter_headline',
         'exclude' => 1,
         'config'  => [
             'type'        => 'input',
@@ -88,7 +88,7 @@ $GLOBALS['TCA']['pages']['palettes']['tx_socialmediafields_twitter'] = [
 ];
 $GLOBALS['TCA']['pages_language_overlay']['palettes']['tx_socialmediafields_twitter'] = $GLOBALS['TCA']['pages']['palettes']['tx_socialmediafields_twitter'];
 
-$typeExtend = '--div--;' . $ll . 'pages.div.socialmedia,--palette--;' . $ll . 'pages.palettes.socialmedia_opengtaph;tx_socialmediafields_opengraph,
+$typeExtend = '--div--;' . $ll . 'pages.div.socialmedia,--palette--;' . $ll . 'pages.palettes.socialmedia_opengraph;tx_socialmediafields_opengraph,
 --palette--;' . $ll . 'pages.palettes.socialmedia_twitter;tx_socialmediafields_twitter,';
 $typeList   = '1,6,7';
 

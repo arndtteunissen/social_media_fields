@@ -14,7 +14,7 @@
 			<trans-unit id="pages.palettes.socialmedia_opengraph" xml:space="preserve">
 				<source>OpenGraph (Facebook, Xing)</source>
 			</trans-unit>
-			<trans-unit id="pages.tx_socialmediafields_opengraph_headlinea" xml:space="preserve">
+			<trans-unit id="pages.tx_socialmediafields_opengraph_headline" xml:space="preserve">
 				<source>Title</source>
 			</trans-unit>
 			<trans-unit id="pages.tx_socialmediafields_opengraph_description" xml:space="preserve">
@@ -27,7 +27,7 @@
 			<trans-unit id="pages.palettes.socialmedia_twitter" xml:space="preserve">
 				<source>Twitter</source>
 			</trans-unit>
-			<trans-unit id="pages.tx_socialmediafields_twitter_headlinea" xml:space="preserve">
+			<trans-unit id="pages.tx_socialmediafields_twitter_headline" xml:space="preserve">
 				<source>Title</source>
 			</trans-unit>
 			<trans-unit id="pages.tx_socialmediafields_twitter_description" xml:space="preserve">
