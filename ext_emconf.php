@@ -27,4 +27,9 @@ $EM_CONF[$_EXTKEY] = [
     'author' => 'Arndtteunissen',
     'author_email' => 'dev@arndtteunissen.de',
     'author_company' => 'Arndtteunissen',
+    'autoload' => [
+        'psr-4' => [
+            'Arndtteunissen\\SocialMediaFields\\' => 'Classes/'
+        ]
+    ]
 ];

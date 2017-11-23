@@ -22,6 +22,11 @@
     "typo3/cms-core": "^7.6 || ^8.7",
     "php": "^7.1"
   },
+  "autoload": {
+    "psr-4": {
+      "Arndtteunissen\\SocialMediaFields\\": "Classes/"
+    }
+  },
   "suggest": {
     "georgringer/news": "Social media fields are also added to the news extension"
   },
