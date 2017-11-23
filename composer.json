@@ -21,5 +21,15 @@
   "require": {
     "typo3/cms-core": "^7.6 || ^8.7",
     "php": "^7.1"
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  },
+  "extra": {
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
+    }
   }
 }
