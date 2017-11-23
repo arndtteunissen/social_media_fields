@@ -15,6 +15,9 @@ $EM_CONF[$_EXTKEY] = [
         'depends' => [
             'php' => '7.1.0-7.1.99',
             'typo3' => '7.6.99-8.7.99'
+        ],
+        'suggests' => [
+            'tx_news' => '*'
         ]
     ],
     'state' => 'beta',
