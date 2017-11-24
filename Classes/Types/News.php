@@ -183,7 +183,7 @@ class News extends AbstractType
             foreach ($files as $file) {
                 // Add the file only if it is an image.
                 if ($file->getType() === 2) {
-                    $this->addTwitterTag('twitter:image', $this->getAbsoluteImagePath($file->getPublicUrl()));
+                    $this->addTwitterTag('twitter:image', $this->getImagePath($file->getPublicUrl()));
                 }
             }
         } elseif (isset(
@@ -211,7 +211,7 @@ class News extends AbstractType
                     $imagePath = substr($imagePath, strlen(PATH_site));
                     $this->addTwitterTag(
                         'twitter:image',
-                        $this->getAbsoluteImagePath(GeneralUtility::createVersionNumberedFilename($imagePath))
+                        $this->getImagePath(GeneralUtility::createVersionNumberedFilename($imagePath))
                     );
                 }
             }

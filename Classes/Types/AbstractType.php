@@ -119,7 +119,7 @@ abstract class AbstractType implements SingletonInterface
      * @return string
      * @throws \UnexpectedValueException
      */
-    protected function getAbsoluteImagePath(string $imageUrl, $absolute = true): string
+    protected function getImagePath(string $imageUrl, $absolute = true): string
     {
         $environmentService = GeneralUtility::makeInstance(EnvironmentService::class);
         $parsedUrl          = parse_url($imageUrl);
