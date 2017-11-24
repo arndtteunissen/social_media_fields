@@ -26,7 +26,7 @@ call_user_func(function ($extKey) {
         ]
     ];
 
-    if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('tx_news')) {
+    if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('news')) {
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$extKey]['types']['news'] = Arndtteunissen\SocialMediaFields\Types\News::class;
     }
 }, $_EXTKEY);
