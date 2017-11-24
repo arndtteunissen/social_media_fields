@@ -1,12 +1,12 @@
 <?php
 namespace Arndtteunissen\SocialMediaFields\Types;
 
-/**
+/*******************************************************************************
  * Copyright notice
  *
  * (c) 2017 arndtteunissen <dev@arndtteunissen.de>
  * All rights reserved
- */
+ ******************************************************************************/
 
 use Arndtteunissen\SocialMediaFields\Rendering\TagRenderer;
 use TYPO3\CMS\Core\Page\PageRenderer;

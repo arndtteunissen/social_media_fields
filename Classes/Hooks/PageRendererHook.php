@@ -1,12 +1,12 @@
 <?php
 namespace Arndtteunissen\SocialMediaFields\Hooks;
 
-/**
+/*******************************************************************************
  * Copyright notice
  *
  * (c) 2017 arndtteunissen <dev@arndtteunissen.de>
  * All rights reserved
- */
+ ******************************************************************************/
 
 use Arndtteunissen\SocialMediaFields\Rendering\TypeRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
