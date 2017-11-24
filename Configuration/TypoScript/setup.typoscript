@@ -4,6 +4,7 @@ plugin.tx_socialmediafields {
 			# This can be a stdwrap or direct string.
 			defaultImage =
 		}
+
 		twitter {
 			# This can be a stdwrap or direct string.
 			defaultImage =

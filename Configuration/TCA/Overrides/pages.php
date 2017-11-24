@@ -78,12 +78,12 @@ $columns = [
 ];
 
 // Palettes
-$GLOBALS['TCA']['pages']['palettes']['tx_socialmediafields_opengraph'] = [
+$GLOBALS['TCA']['pages']['palettes']['tx_socialmediafields_opengraph']                  = [
     'showitem' => 'tx_socialmediafields_opengraph_headline,--linebreak--,tx_socialmediafields_opengraph_description,--linebreak--,tx_socialmediafields_opengraph_images,',
 ];
 $GLOBALS['TCA']['pages_language_overlay']['palettes']['tx_socialmediafields_opengraph'] = $GLOBALS['TCA']['pages']['palettes']['tx_socialmediafields_opengraph'];
 
-$GLOBALS['TCA']['pages']['palettes']['tx_socialmediafields_twitter'] = [
+$GLOBALS['TCA']['pages']['palettes']['tx_socialmediafields_twitter']                  = [
     'showitem' => 'tx_socialmediafields_twitter_headline,--linebreak--,tx_socialmediafields_twitter_description,--linebreak--,tx_socialmediafields_twitter_images,',
 ];
 $GLOBALS['TCA']['pages_language_overlay']['palettes']['tx_socialmediafields_twitter'] = $GLOBALS['TCA']['pages']['palettes']['tx_socialmediafields_twitter'];
