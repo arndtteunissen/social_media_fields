@@ -1,12 +1,12 @@
 <?php
 namespace Arndtteunissen\SocialMediaFields\Types;
 
-/**
+/**************************************************
  * Copyright notice
  *
  * (c) 2017 arndtteunissen <dev@arndtteunissen.de>
  * All rights reserved
- */
+ *************************************************/
 
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -228,7 +228,7 @@ class Pages extends AbstractType
         $this->addTag(
             'meta',
             [
-                'name' => $name,
+                'name'    => $name,
                 'content' => $content
             ]
         );

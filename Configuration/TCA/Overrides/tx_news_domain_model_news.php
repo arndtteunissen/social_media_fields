@@ -6,7 +6,6 @@
  * (c) 2017 arndtteunissen <dev@arndtteunissen.de>
  * All rights reserved
  */
-
 defined('TYPO3_MODE') || die();
 
 $ll = 'LLL:EXT:social_media_fields/Resources/Private/Language/locallang_db.xlf:';
