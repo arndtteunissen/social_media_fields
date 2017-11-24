@@ -22,8 +22,11 @@ call_user_func(function ($extKey) {
 
     $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$extKey] = [
         'types' => [
-            'pages' => Arndtteunissen\SocialMediaFields\Types\Pages::class,
-            'news' => Arndtteunissen\SocialMediaFields\Types\News::class
+            'pages' => Arndtteunissen\SocialMediaFields\Types\Pages::class
         ]
     ];
+
+    if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('tx_news')) {
+        $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$extKey]['types']['news'] = Arndtteunissen\SocialMediaFields\Types\News::class;
+    }
 }, $_EXTKEY);
