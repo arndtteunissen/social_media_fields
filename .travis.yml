@@ -1,0 +1,29 @@
+language: php
+php:
+  - 7.1
+
+notifications:
+  email:
+    - dev@arndtteunissen.de
+
+sudo: false
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_install:
+  - phpenv config-rm xdebug.ini
+
+before_script:
+  - composer global require friendsofphp/php-cs-fixer
+
+script:
+  - >
+    echo;
+    echo "PHP Linting";
+    find . -name \*.php -exec php -d display_errors=stderr -l {} > /dev/null \;
+
+  - >
+    echo;
+    echo "PHP CS Linting";
+    php-cs-fixer fix --dry-run --diff --diff-format=udiff
