@@ -20,7 +20,7 @@ $EM_CONF[$_EXTKEY] = [
             'tx_news' => '*'
         ]
     ],
-    'state' => 'beta',
+    'state' => 'stable',
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => false,
