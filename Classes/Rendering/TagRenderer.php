@@ -1,12 +1,12 @@
 <?php
 namespace Arndtteunissen\SocialMediaFields\Rendering;
 
-/**
+/*******************************************************************************
  * Copyright notice
  *
  * (c) 2017 arndtteunissen <dev@arndtteunissen.de>
  * All rights reserved
- */
+ ******************************************************************************/
 
 use TYPO3\CMS\Fluid\Core\ViewHelper\TagBuilder;
 
@@ -21,14 +21,12 @@ class TagRenderer
      * @var TagBuilder
      */
     protected $tag = null;
-
     /**
      * name of the tag to be created by this view helper
      *
      * @var string
      */
     protected $tagName = '';
-
     /**
      * Names of all registered tag attributes
      *

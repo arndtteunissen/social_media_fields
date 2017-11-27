@@ -1,12 +1,12 @@
 <?php
 namespace Arndtteunissen\SocialMediaFields\Types;
 
-/**
+/*******************************************************************************
  * Copyright notice
  *
  * (c) 2017 arndtteunissen <dev@arndtteunissen.de>
  * All rights reserved
- */
+ ******************************************************************************/
 
 use Arndtteunissen\SocialMediaFields\Rendering\TagRenderer;
 use TYPO3\CMS\Core\Page\PageRenderer;
@@ -27,17 +27,14 @@ abstract class AbstractType implements SingletonInterface
      * @var int
      */
     protected $priority = 1;
-
     /**
      * @var ObjectManager
      */
     protected $objectManager;
-
     /**
      * @var array
      */
     protected $platforms = [];
-
     /**
      * @var array
      */
@@ -119,10 +116,10 @@ abstract class AbstractType implements SingletonInterface
      * @return string
      * @throws \UnexpectedValueException
      */
-    protected function getAbsoluteImagePath(string $imageUrl, $absolute = true): string
+    protected function getImagePath(string $imageUrl, $absolute = true): string
     {
         $environmentService = GeneralUtility::makeInstance(EnvironmentService::class);
-        $parsedUrl          = parse_url($imageUrl);
+        $parsedUrl = parse_url($imageUrl);
         // no prefix in case of an already fully qualified URL
         if (isset($parsedUrl['host'])) {
             $uriPrefix = '';
