@@ -21,14 +21,12 @@ class TagRenderer
      * @var TagBuilder
      */
     protected $tag = null;
-
     /**
      * name of the tag to be created by this view helper
      *
      * @var string
      */
     protected $tagName = '';
-
     /**
      * Names of all registered tag attributes
      *

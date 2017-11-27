@@ -27,17 +27,14 @@ abstract class AbstractType implements SingletonInterface
      * @var int
      */
     protected $priority = 1;
-
     /**
      * @var ObjectManager
      */
     protected $objectManager;
-
     /**
      * @var array
      */
     protected $platforms = [];
-
     /**
      * @var array
      */
@@ -122,7 +119,7 @@ abstract class AbstractType implements SingletonInterface
     protected function getImagePath(string $imageUrl, $absolute = true): string
     {
         $environmentService = GeneralUtility::makeInstance(EnvironmentService::class);
-        $parsedUrl          = parse_url($imageUrl);
+        $parsedUrl = parse_url($imageUrl);
         // no prefix in case of an already fully qualified URL
         if (isset($parsedUrl['host'])) {
             $uriPrefix = '';

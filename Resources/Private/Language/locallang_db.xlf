@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2017-11-23T10:09:31Z">
-		<header>
-			<authorName>Arndtteunissen</authorName>
-			<authorEmail>dev@arndtteunissen.de</authorEmail>
-		</header>
-		<body>
-			<!-- For pages -->
-			<trans-unit id="pages.div.socialmedia" xml:space="preserve">
+    <file source-language="en" datatype="plaintext" original="messages" date="2017-11-23T10:09:31Z">
+        <header>
+            <authorName>Arndtteunissen</authorName>
+            <authorEmail>dev@arndtteunissen.de</authorEmail>
+        </header>
+        <body>
+            <!-- For pages -->
+            <trans-unit id="pages.div.socialmedia" xml:space="preserve">
 				<source>Social Media</source>
 			</trans-unit>
 
@@ -37,8 +37,8 @@
 				<source>Images</source>
 			</trans-unit>
 
-			<!-- For tx_news -->
-			<trans-unit id="tx_news_domain_model_news.div.socialmedia" xml:space="preserve">
+            <!-- For tx_news -->
+            <trans-unit id="tx_news_domain_model_news.div.socialmedia" xml:space="preserve">
 				<source>Social Media</source>
 			</trans-unit>
 
@@ -67,6 +67,6 @@
 			<trans-unit id="tx_news_domain_model_news.tx_socialmediafields_twitter_images" xml:space="preserve">
 				<source>Images</source>
 			</trans-unit>
-		</body>
-	</file>
+        </body>
+    </file>
 </xliff>

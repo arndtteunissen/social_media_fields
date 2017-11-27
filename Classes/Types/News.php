@@ -67,6 +67,35 @@ class News extends AbstractType
     }
 
     /**
+     * @param int $uid
+     * @return array
+     * @throws \UnexpectedValueException
+     */
+    protected function getNewsRow(int $uid): array
+    {
+        if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_branch) >= VersionNumberUtility::convertVersionNumberToInteger(
+                '8.7'
+            )
+        ) {
+            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_news_domain_model_news');
+            $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
+            $news = $queryBuilder->select('*')
+                ->from('tx_news_domain_model_news')
+                ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT)))
+                ->execute()
+                ->fetch();
+        } else {
+            $news = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow(
+                '*',
+                'tx_news_domain_model_news',
+                'uid=' . $uid . $GLOBALS['TSFE']->cObj->enableFields('tx_news_domain_model_news')
+            );
+        }
+
+        return $news ?: [];
+    }
+
+    /**
      * @param array $row
      */
     protected function generateOpenGraphTags(array $row)
@@ -102,8 +131,7 @@ class News extends AbstractType
             $this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']
         )) {
             if (isset(
-                $this->getTyposcriptFrontendController(
-                )->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage.']
+                $this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage.']
             )) {
                 $this->addOpenGraphTag(
                     'og:image',
@@ -111,11 +139,9 @@ class News extends AbstractType
                         $GLOBALS['TSFE']->tmpl->setup['config.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage.']
                     )
                 );
-            } elseif ($this->getTyposcriptFrontendController(
-            )->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage']
+            } elseif ($this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage']
             ) {
-                $imagePath = $this->getTyposcriptFrontendController(
-                )->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage'];
+                $imagePath = $this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage'];
                 $imagePath = GeneralUtility::getFileAbsFileName($imagePath);
 
                 // Only if the files exists. Then it does not exist, GeneralUtility::getFileAbsFileName returns a blank string.
@@ -130,6 +156,23 @@ class News extends AbstractType
                     );
                 }
             }
+        }
+    }
+
+    /**
+     * @param string $property
+     * @param string $content
+     */
+    protected function addOpenGraphTag(string $property, string $content)
+    {
+        if ($content) {
+            $this->addTag(
+                'meta',
+                [
+                    'property' => $property,
+                    'content' => $content
+                ]
+            );
         }
     }
 
@@ -190,8 +233,7 @@ class News extends AbstractType
             $this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']
         )) {
             if (isset(
-                $this->getTyposcriptFrontendController(
-                )->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage.']
+                $this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage.']
             )) {
                 $this->addTwitterTag(
                     'twitter:image',
@@ -199,11 +241,9 @@ class News extends AbstractType
                         $GLOBALS['TSFE']->tmpl->setup['config.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage.']
                     )
                 );
-            } elseif ($this->getTyposcriptFrontendController(
-            )->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage']
+            } elseif ($this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage']
             ) {
-                $imagePath = $this->getTyposcriptFrontendController(
-                )->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage'];
+                $imagePath = $this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage'];
                 $imagePath = GeneralUtility::getFileAbsFileName($imagePath);
 
                 // Only if the files exists. Then it does not exist, GeneralUtility::getFileAbsFileName returns a blank string.
@@ -219,23 +259,6 @@ class News extends AbstractType
     }
 
     /**
-     * @param string $property
-     * @param string $content
-     */
-    protected function addOpenGraphTag(string $property, string $content)
-    {
-        if ($content) {
-            $this->addTag(
-                'meta',
-                [
-                    'property' => $property,
-                    'content'  => $content
-                ]
-            );
-        }
-    }
-
-    /**
      * @param string $name
      * @param string $content
      */
@@ -245,39 +268,10 @@ class News extends AbstractType
             $this->addTag(
                 'meta',
                 [
-                    'name'    => $name,
+                    'name' => $name,
                     'content' => $content
                 ]
             );
         }
-    }
-
-    /**
-     * @param int $uid
-     * @return array
-     * @throws \UnexpectedValueException
-     */
-    protected function getNewsRow(int $uid): array
-    {
-        if (VersionNumberUtility::convertVersionNumberToInteger(TYPO3_branch) >= VersionNumberUtility::convertVersionNumberToInteger(
-                '8.7'
-            )
-        ) {
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_news_domain_model_news');
-            $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
-            $news = $queryBuilder->select('*')
-                                 ->from('tx_news_domain_model_news')
-                                 ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT)))
-                                 ->execute()
-                                 ->fetch();
-        } else {
-            $news = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow(
-                '*',
-                'tx_news_domain_model_news',
-                'uid=' . $uid . $GLOBALS['TSFE']->cObj->enableFields('tx_news_domain_model_news')
-            );
-        }
-
-        return $news ?: [];
     }
 }

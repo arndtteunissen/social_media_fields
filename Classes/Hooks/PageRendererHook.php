@@ -24,7 +24,7 @@ class PageRendererHook
      */
     public function renderPostProcess(array $params)
     {
-        $renderer           = GeneralUtility::makeInstance(TypeRenderer::class);
+        $renderer = GeneralUtility::makeInstance(TypeRenderer::class);
         $params['metaTags'] = array_merge($params['metaTags'], $renderer->render());
     }
 }
