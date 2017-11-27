@@ -88,8 +88,11 @@ $GLOBALS['TCA']['pages']['palettes']['tx_socialmediafields_twitter'] = [
 ];
 $GLOBALS['TCA']['pages_language_overlay']['palettes']['tx_socialmediafields_twitter'] = $GLOBALS['TCA']['pages']['palettes']['tx_socialmediafields_twitter'];
 
-$typeExtend = '--div--;' . $ll . 'pages.div.socialmedia,--palette--;' . $ll . 'pages.palettes.socialmedia_opengraph;tx_socialmediafields_opengraph,
---palette--;' . $ll . 'pages.palettes.socialmedia_twitter;tx_socialmediafields_twitter,';
+$typeExtend = '
+--div--;' . $ll . 'pages.div.socialmedia,
+    --palette--;' . $ll . 'pages.palettes.socialmedia_opengraph;tx_socialmediafields_opengraph,
+    --palette--;' . $ll . 'pages.palettes.socialmedia_twitter;tx_socialmediafields_twitter,';
+
 $typeList = '1,6,7';
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('pages', $columns);
