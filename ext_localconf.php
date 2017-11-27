@@ -12,9 +12,7 @@ defined('TYPO3_MODE') || die();
 call_user_func(function ($extKey) {
 
     // Read extension configuration
-    if (!is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$extKey])) {
-        $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$extKey] = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$extKey]);
-    }
+    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$extKey]);
 
     if (TYPO3_MODE === 'FE') {
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-postProcess'][] = \Arndtteunissen\SocialMediaFields\Hooks\PageRendererHook::class . '->renderPostProcess';
