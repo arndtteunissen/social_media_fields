@@ -1,12 +1,12 @@
 <?php
 namespace Arndtteunissen\SocialMediaFields\Types;
 
-/**
+/**************************************************
  * Copyright notice
  *
  * (c) 2017 arndtteunissen <dev@arndtteunissen.de>
  * All rights reserved
- */
+ *************************************************/
 
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -86,15 +86,14 @@ class Pages extends AbstractType
             foreach ($files as $file) {
                 // Add the file only if it is an image.
                 if ($file->getType() === 2) {
-                    $this->addOpenGraphTag('og:image', $this->getAbsoluteImagePath($file->getPublicUrl()));
+                    $this->addOpenGraphTag('og:image', $this->getImagePath($file->getPublicUrl()));
                 }
             }
         } elseif (isset(
             $this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']
         )) {
             if (isset(
-                $this->getTyposcriptFrontendController(
-                )->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage.']
+                $this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage.']
             )) {
                 $this->addOpenGraphTag(
                     'og:image',
@@ -102,11 +101,9 @@ class Pages extends AbstractType
                         $GLOBALS['TSFE']->tmpl->setup['config.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage.']
                     )
                 );
-            } elseif ($this->getTyposcriptFrontendController(
-            )->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage']
+            } elseif ($this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage']
             ) {
-                $imagePath = $this->getTyposcriptFrontendController(
-                )->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage'];
+                $imagePath = $this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['opengraph.']['defaultImage'];
                 $imagePath = GeneralUtility::getFileAbsFileName($imagePath);
 
                 // Only if the files exists. Then it does not exist, GeneralUtility::getFileAbsFileName returns a blank string.
@@ -114,11 +111,26 @@ class Pages extends AbstractType
                     $imagePath = substr($imagePath, strlen(PATH_site));
                     $this->addOpenGraphTag(
                         'og:image',
-                        $this->getAbsoluteImagePath(GeneralUtility::createVersionNumberedFilename($imagePath))
+                        $this->getImagePath(GeneralUtility::createVersionNumberedFilename($imagePath))
                     );
                 }
             }
         }
+    }
+
+    /**
+     * @param string $property
+     * @param string $content
+     */
+    protected function addOpenGraphTag(string $property, string $content)
+    {
+        $this->addTag(
+            'meta',
+            [
+                'property' => $property,
+                'content' => $content
+            ]
+        );
     }
 
     /**
@@ -169,15 +181,14 @@ class Pages extends AbstractType
             foreach ($files as $file) {
                 // Add the file only if it is an image.
                 if ($file->getType() === 2) {
-                    $this->addTwitterTag('twitter:image', $this->getAbsoluteImagePath($file->getPublicUrl()));
+                    $this->addTwitterTag('twitter:image', $this->getImagePath($file->getPublicUrl()));
                 }
             }
         } elseif (isset(
             $this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']
         )) {
             if (isset(
-                $this->getTyposcriptFrontendController(
-                )->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage.']
+                $this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage.']
             )) {
                 $this->addTwitterTag(
                     'twitter:image',
@@ -185,11 +196,9 @@ class Pages extends AbstractType
                         $GLOBALS['TSFE']->tmpl->setup['config.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage.']
                     )
                 );
-            } elseif ($this->getTyposcriptFrontendController(
-            )->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage']
+            } elseif ($this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage']
             ) {
-                $imagePath = $this->getTyposcriptFrontendController(
-                )->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage'];
+                $imagePath = $this->getTyposcriptFrontendController()->tmpl->setup['plugin.']['tx_socialmediafields.']['settings.']['twitter.']['defaultImage'];
                 $imagePath = GeneralUtility::getFileAbsFileName($imagePath);
 
                 // Only if the files exists. Then it does not exist, GeneralUtility::getFileAbsFileName returns a blank string.
@@ -197,26 +206,11 @@ class Pages extends AbstractType
                     $imagePath = substr($imagePath, strlen(PATH_site));
                     $this->addTwitterTag(
                         'twitter:image',
-                        $this->getAbsoluteImagePath(GeneralUtility::createVersionNumberedFilename($imagePath))
+                        $this->getImagePath(GeneralUtility::createVersionNumberedFilename($imagePath))
                     );
                 }
             }
         }
-    }
-
-    /**
-     * @param string $property
-     * @param string $content
-     */
-    protected function addOpenGraphTag(string $property, string $content)
-    {
-        $this->addTag(
-            'meta',
-            [
-                'property' => $property,
-                'content'  => $content
-            ]
-        );
     }
 
     /**
