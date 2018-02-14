@@ -10,6 +10,7 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Social Media Fields',
     'description' => 'Adds social media features to TYPO3 pages.',
+    'version' => '1.0.3',
     'category' => 'fe',
     'constraints' => [
         'depends' => [
